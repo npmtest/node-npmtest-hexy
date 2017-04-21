@@ -1,1 +1,39 @@
-{     "devDependencies": {         "electron-lite": "kaizhu256/node-electron-lite#alpha",         "utility2": "kaizhu256/node-utility2#alpha"     },     "name":"npmtest-hexy",     "homepage": "https://github.com/npmtest/node-npmtest-hexy",     "repository": {         "type": "git",         "url": "https://github.com/npmtest/node-npmtest-hexy.git"     },     "scripts": {         "build-ci": "utility2 shReadmeTest build_ci.sh"     },     "version": "0.0.1" }
+{
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "description": "#### basic test coverage for  hexy (v0.2.9)  [![npm package](https://img.shields.io/npm/v/npmtest-hexy.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-hexy) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-hexy.svg)](https://travis-ci.org/npmtest/node-npmtest-hexy)",
+    "devDependencies": {
+        "electron-lite": "kaizhu256/node-electron-lite#alpha",
+        "utility2": "kaizhu256/node-utility2#alpha"
+    },
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmtest/node-npmtest-hexy",
+    "keywords": [
+        "coverage",
+        "test",
+        "hexy"
+    ],
+    "license": "MIT",
+    "main": "lib.npmtest_hexy.js",
+    "name": "npmtest-hexy",
+    "nameAlias": "npmtest_hexy",
+    "nameOriginal": "npmtest-hexy",
+    "os": [
+        "darwin",
+        "linux"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/npmtest/node-npmtest-hexy.git"
+    },
+    "scripts": {
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "npm install \"kaizhu256/node-utility2#alpha\" && utility2 shDeployHeroku",
+        "postinstall": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh postinstall",
+        "start": "PORT=${PORT:-8080} utility2 start test.js",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
+    },
+    "version": "0.0.1"
+}
